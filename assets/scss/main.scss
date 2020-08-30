@@ -1,3 +1,10 @@
-h1 {
-  font-size: 38px;
-}
+// <Переменные>
+@import "variables";
+// <Шрифты>
+@import "fonts";
+// <Обнуление стилей>
+@import "null";
+// <Глобальные,Повторяющиеся стили>
+@import "global";
+
+@import "header";

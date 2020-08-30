@@ -1,0 +1,25 @@
+body {
+  font-family: $font-family;
+  color: $mainColor;
+  font-weight: 500;
+}
+a {
+  text-decoration: none;
+  color: $mainColor;
+}
+.d-block {
+  display: block;
+}
+.d-flex {
+  display: flex;
+}
+// <Оболочка страницы>
+.wrapper {
+  padding: 50px 0 0 0;
+}
+// <Основной контейнер>
+.container {
+  max-width: $maxWidthContainer;
+  padding: 0 15px;
+  margin: 0 auto;
+}

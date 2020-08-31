@@ -7,8 +7,9 @@
       </div>
       <div class="rent__cards vehicle-cards d-flex">
         <VehicleCard
-          v-for="(item, index) in 24"
-          v-bind:key="item.index"
+          v-for="vehicle in vehicles"
+          :key="vehicle.id"
+          :vehicle="vehicle"
         />
       </div>
     </div>
@@ -19,11 +20,21 @@
   import RentSelect from "../components/RentViews/RentSelect";
   import AddNewVehicle from "../components/RentViews/AddNewVehicle";
   import VehicleCard from "../components/RentViews/VehicleCard";
+  import {mapActions,mapGetters} from 'vuex'
 export default {
   components: {
     RentSelect,
     AddNewVehicle,
     VehicleCard
+  },
+  computed: {
+    ...mapGetters(['vehicles'])
+  },
+  methods: {
+    ...mapActions(['getVehicles'])
+  },
+  mounted() {
+    this.getVehicles()
   }
 }
 </script>

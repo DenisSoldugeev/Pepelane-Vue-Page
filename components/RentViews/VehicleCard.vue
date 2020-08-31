@@ -1,18 +1,25 @@
 <template>
     <div class="rent__card vehicle-card d-flex">
-        <img src="~assets/image/vehicle/card-img-1.png" class="vehicle-card__img" alt="vehicle-img">
+        <img :src="vehicle.image" class="vehicle-card__img" alt="vehicle-img">
       <div class="vehicle-card__text">
-        <span class="vehicle-card__title">XR-74 «Cooper»</span>
-        <p class="vehicle-card__description">Brief description of the project,
-          in a few lines.</p>
-        <span class="vehicle-card__price">1 278 $/h</span>
+        <span class="vehicle-card__title">{{vehicle.name}}</span>
+        <p class="vehicle-card__description">{{vehicle.description}}</p>
+        <span class="vehicle-card__price">{{vehicle.rent}} $/h</span>
       </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "VehicleCard"
+        name: "VehicleCard",
+        props: {
+          vehicle: {
+            type: Object,
+            default() {
+              return {}
+            }
+          }
+        }
     }
 </script>
 
@@ -27,6 +34,7 @@
    margin: 32px 0 0 0;
   }
   &__img {
+    border-radius: 24px;
     max-height: 88px;
     margin: 0 24px 0 0;
   }

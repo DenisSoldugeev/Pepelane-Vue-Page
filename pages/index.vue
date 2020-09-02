@@ -20,7 +20,7 @@
   import RentSelect from "../components/RentViews/RentSelect";
   import AddNewVehicle from "../components/RentViews/AddNewVehicle";
   import VehicleCard from "../components/RentViews/VehicleCard";
-  import {mapActions,mapGetters} from 'vuex'
+  import {mapActions,mapGetters} from 'vuex';
 export default {
   components: {
     RentSelect,
@@ -28,13 +28,17 @@ export default {
     VehicleCard
   },
   computed: {
-    ...mapGetters(['vehicles'])
+    ...mapGetters({
+      vehicles: 'vehicles/vehicles'
+    })
   },
   methods: {
-    ...mapActions(['getVehicles'])
+    ...mapActions({
+      getVehicles: 'vehicles/getVehicles'
+    })
   },
   mounted() {
-    this.getVehicles()
+     this.getVehicles()
   }
 }
 </script>

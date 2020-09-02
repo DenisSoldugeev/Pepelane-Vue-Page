@@ -1,12 +1,12 @@
 <template>
-    <div class="rent__card vehicle-card d-flex">
-        <img :src="vehicle.image" class="vehicle-card__img" alt="vehicle-img">
+    <a href="#" @click.prevent="openCard(vehicle)" class="rent__card vehicle-card d-flex">
+        <img :src="vehicle.preview" class="vehicle-card__img" alt="vehicle-img">
       <div class="vehicle-card__text">
         <span class="vehicle-card__title">{{vehicle.name}}</span>
         <p class="vehicle-card__description">{{vehicle.description}}</p>
         <span class="vehicle-card__price">{{vehicle.rent}} $/h</span>
       </div>
-    </div>
+    </a>
 </template>
 
 <script>
@@ -19,7 +19,12 @@
               return {}
             }
           }
+        },
+      methods: {
+        openCard(vehicle) {
+          this.$router.push('/vehicle/' + vehicle.id)
         }
+      }
     }
 </script>
 

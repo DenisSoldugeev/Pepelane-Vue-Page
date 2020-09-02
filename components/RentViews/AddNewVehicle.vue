@@ -1,5 +1,5 @@
 <template>
-<div class="rent__add add d-flex">
+<div class="rent__add add d-flex" @click="onModal">
     <span>Add new</span>
     <button><img src="~assets/image/icons/add-icon.svg" alt="add-icon"></button>
 </div>
@@ -7,7 +7,17 @@
 
 <script>
     export default {
-        name: "AddNewVehicle"
+      name: "AddNewVehicle",
+      data: () => {
+        return {
+
+        }
+      },
+      methods: {
+        onModal() {
+          this.$emit('onModal')
+       }
+      }
     }
 </script>
 

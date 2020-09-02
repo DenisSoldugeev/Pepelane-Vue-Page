@@ -6,6 +6,9 @@ export const state = () => ({
 export const mutations = ({
   setVehicles: (state, vehicles) => {
     state.vehicles = vehicles
+  },
+  createVehicles: (state, newVehicle) => {
+    state.vehicles.unshift(newVehicle)
   }
 });
 export const actions = ({

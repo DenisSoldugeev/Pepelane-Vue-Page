@@ -1,9 +1,15 @@
 <template>
   <div class="rent">
+    <AddForm
+      v-if="showModal"
+      @offModal="offModal"
+    />
     <div class="rent__container container">
       <div class="rent__top d-flex">
         <RentSelect />
-        <AddNewVehicle />
+        <AddNewVehicle
+          @onModal="onModal"
+        />
       </div>
       <div class="rent__cards vehicle-cards d-flex">
         <VehicleCard
@@ -20,12 +26,20 @@
   import RentSelect from "../components/RentViews/RentSelect";
   import AddNewVehicle from "../components/RentViews/AddNewVehicle";
   import VehicleCard from "../components/RentViews/VehicleCard";
+  import AddForm from "../components/AddForm";
   import {mapActions,mapGetters} from 'vuex';
 export default {
   components: {
     RentSelect,
     AddNewVehicle,
-    VehicleCard
+    VehicleCard,
+    AddForm
+  },
+  data: () => {
+    return {
+      showModal: false,
+      selectVehicle: []
+    }
   },
   computed: {
     ...mapGetters({
@@ -35,7 +49,13 @@ export default {
   methods: {
     ...mapActions({
       getVehicles: 'vehicles/getVehicles'
-    })
+    }),
+    onModal() {
+      this.showModal = !this.showModal;
+    },
+    offModal() {
+      this.showModal = !this.showModal;
+    },
   },
   mounted() {
      this.getVehicles()
@@ -43,6 +63,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style  lang="scss">
 
 </style>

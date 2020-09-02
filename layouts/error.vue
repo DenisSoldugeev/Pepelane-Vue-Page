@@ -16,6 +16,7 @@
 
 <style scoped lang="scss">
   .error {
+    text-align: center;
     min-height: 100vh;
     background: #F3F4F7;
     border-radius: 48px;
